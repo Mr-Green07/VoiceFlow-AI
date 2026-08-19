@@ -28,7 +28,7 @@ print("runAndWait() finished")
 
 # Use the model
 def get_response(prompt):
-    response = ollama.generate(model='llama3.2:3b', prompt=prompt)
+    response = ollama.generate(model='llama3.2:11b', prompt=prompt)
     return response['response']
 
 # Example

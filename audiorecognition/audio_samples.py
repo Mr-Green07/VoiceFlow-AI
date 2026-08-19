@@ -9,8 +9,21 @@ import time
 
 
 engine = pyttsx3.init('sapi5')
-voices= engine.getProperty('voices') 
+voices = engine.getProperty('voices')
+# voices= engine.getProperty('voices') 
 engine.setProperty('voice', voices[0].id)
+
+print(f"There are {len(voices)} voices available.")
+
+# Display details for each voice
+for i, voice in enumerate(voices):
+    print(f"Voice {i}:")
+    print(f"  ID: {voice.id}")
+    print(f"  Name: {voice.name}")
+    print(f"  Languages: {voice.languages}")
+    print(f"  Gender: {voice.gender}")
+    print(f"  Age: {voice.age}")
+    print("-" * 20)
 
 def speak(audio):
     engine.say(audio) 
@@ -53,7 +66,6 @@ def toggle_wifi(turn_on=True):
     Args:
         turn_on (bool): True to turn on WiFi, False to turn off
     """
-    # Get a list of all wireless interfaces
     interfaces_output = subprocess.check_output("netsh interface show interface", shell=True).decode('utf-8')
     
     # Look for wireless interfaces
@@ -92,7 +104,6 @@ def check_wifi_status():
             
 if __name__=="__main__":
     wishme()
-    
     while True:
         query = takecommand().lower()
         
